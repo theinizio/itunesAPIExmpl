@@ -1,0 +1,74 @@
+﻿<!doctype html>
+<html ng-app="itunesApp">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="css/mystyles.css" rel="stylesheet"> 
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+<div  ng-controller="itunesController" data-ng-init="myfunc()" class="container-fluid">
+ <div class="search">
+   
+	<input class="form-control" type="text" search    placeholder = "Michael Jackson" />
+   
+ </div>
+ 
+<div class="tableContainer">
+	  <table class="table " border=0 >
+            <thead>
+                <tr>
+					
+                    <th>&nbsp;</th>
+                    <th>Artist</th>
+                    <th>Track</th>
+                    <th>Collection</th>
+                    <th>Genre</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat-start="track in list.tracks"  ng-click="showDetails(track.trackId)" ng-class-odd="'odd'" ng-class-even="'even'">
+					
+                    <td><img src={{track.artworkUrl100}}></td>
+                    <td>{{track.artistName}}</td>
+                    <td>{{track.trackName}}</td>
+                    <td>{{track.collectionName}}</td>
+                    <td>{{track.primaryGenreName}}</td>
+                    <td id="b{{track.trackId}}"  class="plusMinus">+</td>
+                </tr>
+                <tr  ng-repeat-end  ng-click="showDetails(track.trackId)" ng-class-odd="'odd'" ng-class-even="'even'">
+					
+					<td id="d{{track.trackId}}" colspan="6" style="display:none"   ng-click="showDetails(track.trackId)"   >
+					  <div class="detailsContainer">
+						<h3>
+							{{track.artistName}} - {{track.trackName}} <img src="img/note.svg" width=30>
+						</h3>
+						<div class="row">
+							<div class="col">
+								<div><b>Collection: </b>{{track.collectionName}}</div>
+								<div><b>Track count: </b>{{track.trackCount}}</div>
+								<div><b>Price: </b>{{track.collectionPrice}} {{track.currency}}</div>
+							</div>
+							<div class="col">
+								<div><b>Track duration: </b>{{track.trackTimeMillis| date:'mm:ss'}} min</div>
+								<div><b>Track price: </b>{{track.trackPrice}}  {{track.currency}}</div>
+								<div>&nbsp;</div>
+							</div>
+						</div>
+					  </div>
+					</td>
+					
+                </tr>
+                
+            </tbody>
+        </table>
+</div>
+<script src="js/lib/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/controllers/itunescontroller.js"></script>
+</body>
+</html>

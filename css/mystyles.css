@@ -1,0 +1,39 @@
+
+
+
+.search{
+	
+	width:60%;
+	margin:auto;
+	margin-top:30px;
+	margin-bottom:10px;
+}
+
+.tableContainer{
+	width:80%;
+	margin:auto;
+
+}
+
+
+.odd{
+	background-color:#ccdff0;
+	
+}
+.even{
+	background-color:#eef7ff;	
+	
+}
+ td{
+	border-top:0!important;
+ }
+
+.plusMinus{
+	font-size:72px;
+	font-weight:bold;
+
+}
+
+.detailsContainer{
+	margin-left:10%;
+}
