@@ -18,7 +18,7 @@ var model = {
 
 
 itunesApp.controller('itunesController',
-	function itunesController($scope, $http, $sanitize){
+	function itunesController($scope, $http){
 		
 		
 		
@@ -26,7 +26,7 @@ itunesApp.controller('itunesController',
 			
 			val = val.trim();
 			val = val.replace(/\s+/g, '+');
-			console.log($sanitize(val));
+			
 		$http({method:'GET', url:'https://itunes.apple.com/search', params: {'term':val}})
              .then(function successCallback(response) {
                 

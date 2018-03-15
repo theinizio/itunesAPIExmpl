@@ -1,4 +1,4 @@
-var itunesApp = angular.module("itunesApp", ['ngSanitize']);
+var itunesApp = angular.module("itunesApp", []);
 
 
 itunesApp.directive('search', function () {
